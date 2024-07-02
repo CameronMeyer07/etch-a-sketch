@@ -2,6 +2,7 @@ const container = document.querySelector(".container");
 const input = document.querySelector("input");
 const create = document.querySelector(".create");
 const clear = document.querySelector(".clear");
+const row = document.querySelector(".row"); 
 
 create.addEventListener("click", e => {
 
@@ -14,10 +15,13 @@ create.addEventListener("click", e => {
         for (let j = 1; j <= myInput; j++){
             let row = document.createElement("div");
             row.classList.add("row");
-            row.style.border = '0.05px solid black';
+            row.style.backgroundColor = '#dddddd';
+            row.addEventListener("mouseover", () => {
+            row.style.backgroundColor = `rgb(${randomColor()} ${randomColor()} ${randomColor()})`;})
             column.append(row);
         } 
         container.append(column);
+        
         input:focus();
     }
 });
@@ -32,3 +36,8 @@ clear.addEventListener("click", e => {
         container.removeChild(column);
     }
 })
+
+function randomColor(){
+    let randomColor = Math.floor(Math.random() * 256);
+    return randomColor;
+};

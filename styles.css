@@ -29,7 +29,3 @@ body {
 .container>div>* {
     flex: 1;
 }
-
-.row:hover {
-    background-color: black;
-}
